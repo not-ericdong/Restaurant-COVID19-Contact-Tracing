@@ -9,12 +9,17 @@ The website will only ask for an email address from the customer.
 Once the customer submits an email address the email address along with the place they are visiting and the current date and time will be inserted into a database.
 The location is automatically created based on which QR code was scanned, the date and time is also automattically generated.
 
-If a customer has a positive COVID-19 diagnosis they will report to the website.
+If a customer has a positive COVID-19 diagnosis they will report to the website on the Report page.
 Then emails will be automatically be sent out to other customers based on the time and all of the visited locations of the user with the positive case.
-The email contents will only specify that there has been a confirmed cased at X location from X time.
+The email contents will only specify that there has been a confirmed cased at X location from X time. Also to alert other indivisuals you have dined with.
 
+Restraunts will need to signup on the For Businesses page, they will enter the location of their business and the name of the business.
+They will then be provided with an unique QR code for customers to scan.
 
 # Your privacy is important
 Your emails are safe! I will never share the contents of the database with anybody else.
 The website will also not track any details other than storing the email you provided into the database.
 I am also looking into deleting data that are over 1 month old as I do not think such data will have any meaning for contact tracing but I am unsure if this is true.
+
+
+this is how I currently envision how the website should be built it is subject to change.
