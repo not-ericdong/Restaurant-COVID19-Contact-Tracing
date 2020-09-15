@@ -1,0 +1,23 @@
+covid ct app
+
+create unique QR code for each restraunt (idk if one or many unique QRs)
+
+use url flags store data into it
+like youtube.com/watch?= .....
+https://help.surveygizmo.com/help/url-variables
+somehow need to auto input location ^^^^
+
+
+user scans qr code - enters their number and maybe name-prob dont need for privcy
+check if number enter is valid (syntax wise dont call them lol)
+
+when entered submit into db - need: number, date, time, place
+
+if user gets covid they go to a diff page to report
+they enter their number
+db looks for the number entered and find all instances
+either just alert restraunt or if i can figure out how to text people for cheap
+alerts other numbers based on time, place
+
+
+maybe make a restraunt portal
