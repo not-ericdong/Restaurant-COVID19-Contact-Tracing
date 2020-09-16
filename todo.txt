@@ -21,3 +21,6 @@ alerts other numbers based on time, place
 
 
 maybe make a restraunt portal
+
+
+entries older than a certain date can be deleted
