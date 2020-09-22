@@ -6,7 +6,6 @@
    <title>COVID-19 Contact Tracing</title>
    <meta name="description" content="COVID-19 Contact tracing for restaurants and small businesses">
    <link rel="stylesheet" href="styles.css">
-   <script src="main.js"></script>
 </head>
 
 <body>
@@ -33,6 +32,12 @@
                Please provide the email you wish to recieve exposure notifications below.
             </p>
 
+            <form action="#" name="form2">
+               <input type="text" placeholder="Enter the address of your " id="qrData" />
+               <input type="button" value="Submit" onclick="makeQR();"/>
+               <div id="qrcode"></div>
+            </form>
+
             <ul>This website stores only the following:
                <li>The location you visited</li>
                <li>Date and time of your visit</li>
@@ -50,5 +55,10 @@
          <a href="mailto:ericdong97@gmail.com" class="padded">Contact</a>
       </footer>
    </div>
+
+   <script src="https://sdk.amazonaws.com/js/aws-sdk-2.756.0.min.js"></script>
+   <script src="qrcode.min.js"></script>
+   <script src="main.js"></script>
+   <script src="url.js"></script>
 </body>
 </html>

@@ -6,7 +6,6 @@
    <title>COVID-19 Contact Tracing</title>
    <meta name="description" content="COVID-19 Contact tracing for restaurants and small businesses">
    <link rel="stylesheet" href="styles.css">
-   <script src="main.js"></script>
 </head>
 
 <body>
@@ -32,10 +31,19 @@
             <p>
                Please provide the email you wish to recieve exposure notifications below.
             </p>
-            <input type="text" placeholder="Enter an Email Address" /><input type="button" value="Submit"
-               onclick="clickEvent();" />
-      
-            <ul>This website stores only the following:
+
+            <form action="#" name="form1">
+            <input type="text" placeholder="Enter an Email Address" name="email_text" />
+            <input type="button" value="Submit" onclick="createItem(document.form1.email_text.value, 'The Food Place'); ValidateEmail(document.form1.email_text);"/>
+
+               <!-- <input type="text" placeholder="Enter an Email Address" name="email_text1"/>
+               <input type="submit" value="READ" 
+               onclick="readItem('moondell888@gmail.com');" 
+               /> -->
+            </form>
+
+            <h2>This website stores only the following:</h2>
+            <ul>
                <li>The location you visited</li>
                <li>Date and time of your visit</li>
                <li>The email you provided</li>
@@ -53,5 +61,10 @@
          <a href="mailto:ericdong97@gmail.com" class="padded">Contact</a>
       </footer>
    </div>
+
+   <script src="https://sdk.amazonaws.com/js/aws-sdk-2.756.0.min.js"></script>
+   <script src="qrcode.min.js"></script>
+   <script src="main.js"></script>
+   <script src="url.js"></script>
 </body>
 </html>
