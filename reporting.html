@@ -39,6 +39,11 @@
                Please provide the email you wish to recieve exposure notifications below.
             </p>
 
+            <form action="#" name="form1" >
+               <input type="text" placeholder="Enter an E-Mail Address" name="email_text" class="form"/>
+               <input type="button" value="SEND" onclick="readItem(document.form1.email_text.value, 'The Food Place'); ValidateEmail(document.form1.email_text);"/>
+            </form>
+
             <ul>This website stores only the following:
                <li>The location you visited</li>
                <li>Date and time of your visit</li>

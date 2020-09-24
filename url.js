@@ -7,14 +7,6 @@ function makeURL (){
     
 }
 
-function getURL (){
-   var theUrl = new Url(window.location.href); //return the current url
-   return theUrl
-   // return theUrl.searchParams.get("location"); gets value of location parameter
-}
-
-
-
 /* QR code generator */
 var qrcode = new QRCode("qrcode");
 

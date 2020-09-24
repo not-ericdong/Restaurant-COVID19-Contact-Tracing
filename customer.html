@@ -41,7 +41,7 @@
 
             <form action="#" name="form1" >
                <input type="text" placeholder="Enter an E-Mail Address" name="email_text" class="form"/>
-               <input type="button" value="SEND" onclick="createItem(document.form1.email_text.value, 'The Food Place'); ValidateEmail(document.form1.email_text);"/>
+               <input type="button" value="SEND" onclick="createItem(document.form1.email_text.value); ValidateEmail(document.form1.email_text);"/>
             </form>
 
             <!-- <h2>This website stores only the following:</h2> -->
@@ -65,6 +65,7 @@
    </div>
 
    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.756.0.min.js"></script>
+   <script src="qrcode.js"></script>
    <script src="main.js"></script>
    <script src="url.js"></script>
 </body>
