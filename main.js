@@ -49,7 +49,6 @@ function createItem(email_text, location) {
             "Email": email_text,
             "Date": dateTime,
             "Location": location,
-            "LocationName": "location name"
        }
    };
    docClient.put(params, function(err, data) {
