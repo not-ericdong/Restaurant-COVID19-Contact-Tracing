@@ -1,7 +1,5 @@
 /* ----------- email validation --------------- */
-function ValidateEmail(emailInput)
-{
-
+function ValidateEmail(emailInput) {
     var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (emailInput.value.match(mailformat)) {
         alert("Thanks for entering an email address!");
@@ -40,10 +38,10 @@ AWS.config.region = 'us-east-2';
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({
     IdentityPoolId: 'us-east-2:6a244cf2-21b7-424e-a58e-9cb80202e6a4',
 });
-AWS.config.credentials.get(function(){
+AWS.config.credentials.get(function() {
     // Credentials will be available when this function is called.
     var accessKeyId = AWS.config.credentials.accessKeyId;
-    debugger;
+    // debugger;
     var secretAccessKey = AWS.config.credentials.secretAccessKey;
     var sessionToken = AWS.config.credentials.sessionToken;
 });
@@ -55,7 +53,7 @@ function getURL (){
     var theUrl = new URL(window.location.href); //return the current url
     // return theUrl
     return theUrl.searchParams.get("location"); //return value of location SQ
- }
+}
 
 var docClient = new AWS.DynamoDB.DocumentClient();
 
@@ -64,40 +62,103 @@ function createItem(email_text) {
     var params = {
         TableName: "User-Data",
         Item: {
-            "Email": email_text,
-            "Date": dateTime,
             "Location": location,
+            "Date": dateTime,
+            "Email": email_text
         }
     };
     docClient.put(params, function (err, data) {
         if (err) {
             document.getElementById('textarea').innerHTML = "Unable to add item: " + "\n" + JSON.stringify(err, undefined, 2);
         } else {
-            document.getElementById('textarea').innerHTML = "PutItem succeeded: " + "\n" + JSON.stringify(data, undefined, 2);
+            document.getElementById('textarea').innerHTML = "Put Item succeeded";
         }
     });
 }
 
-function readItem(email_text) {
-   var table = "User-Data";
-   var email = email_text;
-   var date = 123;
+function reporterDetails(email_text) {
+    document.getElementById('textarea').innerHTML += "Querying for items in database." + "\n";
+    // debugger;
+    var params = {
+        TableName : "User-Data",
+        KeyConditionExpression: "#reporter = :reporter_email",
+        ExpressionAttributeNames: {
+            "#reporter": "Email",
+            // "#reportDate": "Date"
+            // "#theLocation": "Location"
+        },
+        ExpressionAttributeValues: {
+            ":reporter_email":email_text,
+            // ":report_time":dateTime
+        }
+    };
 
-   var params = {
-       TableName: table,
-       Key:{
-           "Email": email,
-           "Date": date,
-            "Location": "The Food Place"
-       }
-   };
-   docClient.get(params, function(err, data) {
-       if (err) {
-           document.getElementById('textarea').innerHTML = "Unable to read item: " + "\n" + JSON.stringify(err, undefined, 2);
-       } else {
-           document.getElementById('textarea').innerHTML = "GetItem succeeded: " + "\n" + JSON.stringify(data, undefined, 2);
-       }
-   });
+    docClient.query(params, function(err, data) {
+        if (err) {
+            document.getElementById('textarea').innerHTML += JSON.stringify(err, undefined, 2);
+        } else {
+            // document.getElementById('textarea').innerHTML += JSON.stringify(data, undefined, 2);
+            var reporter = data.Items;
+            // debugger;
+            scanDB(reporter);
+        }
+    });
+}
+
+function scanDB(reporter) {
+    for (var x in reporter) {
+        var myEmail = reporter[x].Email;
+        var myLocation = reporter[x].Location;
+        var myTime = reporter[x].Date;
+        document.getElementById('textarea').innerHTML += "a " + myLocation + "\n";
+        document.getElementById('textarea').innerHTML += "a " + myTime + "\n";
+
+        var params = {
+            TableName : "User-Data",
+            ProjectionExpression:"Email, #theDate, #theLocation",
+            FilterExpression: "Email <> :reporter_email AND #theLocation = :reporter_location AND #theDate BETWEEN  :reporter_time_start AND :reporter_time_end",
+            ExpressionAttributeNames:{
+                "#theDate": "Date",
+                "#theLocation": "Location"
+            },
+            ExpressionAttributeValues: {
+                ":reporter_email": myEmail,
+                ":reporter_location": myLocation,
+                ":reporter_time_start": myTime,
+                ":reporter_time_end": myTime + 7200000
+            }
+        };
+        docClient.scan(params, onScan);
+
+        // console.log(params)
+
+        function onScan(err, data) {
+            if (err) {
+                document.getElementById('textarea').innerHTML += "Unable to scan the table: " + "\n" + JSON.stringify(err, undefined, 2);
+            } else {
+                // do something - email
+                console.log(data)
+                document.getElementById('textarea').innerHTML += "Scan succeeded. " + "\n";
+            
+                data.Items.forEach(email_contacts);
+                    
+                function email_contacts(json_item) {
+                    let location = json_item.Location;
+                    let date = json_item.Date;
+                    let email = json_item.Email;
+                    document.getElementById('textarea').innerHTML += email + "\n";
+                    document.getElementById('textarea').innerHTML += date + "\n";
+                    document.getElementById('textarea').innerHTML += location + "\n" + "\n";
+                };
+    
+                // Continue scanning if we have more movies (per scan 1MB limitation)
+                // document.getElementById('textarea').innerHTML += "Scanning for more..." + "\n";
+                // params.ExclusiveStartKey = data.LastEvaluatedKey;
+                // docClient.scan(params, onScan);            
+            }
+        }
+
+    }
 }
 
 function conditionalDelete(email_text) {

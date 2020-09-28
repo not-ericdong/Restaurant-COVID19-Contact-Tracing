@@ -39,10 +39,12 @@
                Please provide the email you wish to recieve exposure notifications below.
             </p>
 
-            <form action="#" name="form1" >
+            <form action="#" name="form3" >
                <input type="text" placeholder="Enter an E-Mail Address" name="email_text" class="form"/>
-               <input type="button" value="SEND" onclick="readItem(document.form1.email_text.value, 'The Food Place'); ValidateEmail(document.form1.email_text);"/>
+               <input type="button" value="SEND" onclick="reporterDetails(document.form3.email_text.value);"/>
             </form>
+
+            <textarea readonly id= "textarea" style="width:400px; height:800px"></textarea>
 
             <ul>This website stores only the following:
                <li>The location you visited</li>
@@ -61,6 +63,10 @@
          <a href="mailto:ericdong97@gmail.com" class="padded">Contact</a>
       </footer>
    </div>
+
+   <script src="https://sdk.amazonaws.com/js/aws-sdk-2.756.0.min.js"></script>
+   <script src="qrcode.js"></script>
    <script src="main.js"></script>
+   <script src="url.js"></script>
 </body>
 </html>
