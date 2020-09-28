@@ -2,16 +2,10 @@ covid ct app
 
 create unique QR code for each restraunt (idk if one or many unique QRs)
 
-use url flags store data into it
-like youtube.com/watch?= .....
-https://help.surveygizmo.com/help/url-variables
-somehow need to auto input location ^^^^
 
 
-user scans qr code - enters their number and maybe name-prob dont need for privcy
-check if number enter is valid (syntax wise dont call them lol)
 
-when entered submit into db - need: number, date, time, place
+
 
 if user gets covid they go to a diff page to report
 they enter their number
@@ -34,7 +28,8 @@ If a customer has a positive COVID-19 diagnosis they will report to the website 
 Restraunts will need to signup on the For Businesses page, they will enter the location of their business and the name of the business. They will then be provided with an unique QR code for customers to scan.
 
 
+need to send email
 
-index html use main.js 
-business.html use url.js 
-reporting.html use read-delete-db.js
+need to fix html and css
+
+think thats it

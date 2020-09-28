@@ -5,6 +5,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>COVID-19 Contact Tracing</title>
    <meta name="description" content="COVID-19 Contact tracing for restaurants and small businesses">
+   <link rel="shortcut icon" href="images/favicon.ico">
    <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -16,13 +17,6 @@
             Restaurant COVID-19 Contact Tracing
          </h1>
       </header>
-   
-      <!-- <nav class="box1">
-         <a href="https://www.notericdong.com/customer.html">For Customers</a>
-         <a href="https://www.notericdong.com/businessess.html">For Businesses</a>
-         <a href="https://www.notericdong.com/reporting.html">Reporting</a>
-         <a href="mailto:ericdong97@gmail.com">Contact</a>
-      </nav> -->
 
       <nav class="box1">
          <a href="https://not-ericdong.github.io/Restaurant-COVID19-Contact-Tracing/customer.html">For Customers</a>
@@ -44,7 +38,7 @@
                <input type="button" value="SEND" onclick="createItem(document.form1.email_text.value); ValidateEmail(document.form1.email_text);"/>
             </form>
 
-            <textarea id= "textarea" style="width:400px; height:500px"></textarea>
+            <!-- <textarea id= "textarea" style="width:400px; height:500px"></textarea> -->
 
             <!-- <h2>This website stores only the following:</h2> -->
             <ul>
@@ -67,6 +61,7 @@
    </div>
 
    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.756.0.min.js"></script>
+   <script src="https://smtpjs.com/v3/smtp.js"></script>  
    <script src="qrcode.js"></script>
    <script src="main.js"></script>
    <script src="url.js"></script>

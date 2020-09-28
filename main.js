@@ -110,6 +110,7 @@ function scanDB(reporter) {
         var myEmail = reporter[x].Email;
         var myLocation = reporter[x].Location;
         var myTime = reporter[x].Date;
+        var email_list = [];
         document.getElementById('textarea').innerHTML += "a " + myLocation + "\n";
         document.getElementById('textarea').innerHTML += "a " + myTime + "\n";
 
@@ -149,6 +150,23 @@ function scanDB(reporter) {
                     document.getElementById('textarea').innerHTML += email + "\n";
                     document.getElementById('textarea').innerHTML += date + "\n";
                     document.getElementById('textarea').innerHTML += location + "\n" + "\n";
+                    // email_list.push(email, location, date);
+                    email_body = "Hello, there was a reported case of COVID19 at " + location + " this case occured during " + date.toString();
+                    console.log(email_body)
+                    Email.send({
+                        SecureToken: "9715427a-09aa-4965-8d4d-f5e7e686071f",
+                        Host: "smtp.gmail.com",
+                        Username: "salefinder.ned@gmail.com",
+                        Password: "haruc4h9",
+                        To: "ericdong97@gmail.com", //todo change this
+                        From: "salefinder.ned@gmail.com",
+                        Subject: "COVID19 Contact Tracing",
+                        Body: email_body
+
+                    }).then(
+                        // message => alert("Email sent successfully")
+                        console.log("email sent")
+                    )
                 };
     
                 // Continue scanning if we have more movies (per scan 1MB limitation)
