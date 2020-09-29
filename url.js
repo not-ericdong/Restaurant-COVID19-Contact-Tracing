@@ -12,7 +12,7 @@ var qrcode = new QRCode("qrcode");
 
 function makeQR () {
    var locText = makeURL();
-   console.log(locText)
+   // console.log(locText)
    if (!locText) {
       alert("Please enter a location");
       locText.focus();

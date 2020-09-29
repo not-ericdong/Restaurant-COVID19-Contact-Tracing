@@ -69,15 +69,15 @@ function createItem(email_text) {
     };
     docClient.put(params, function (err, data) {
         if (err) {
-            document.getElementById('textarea').innerHTML = "Unable to add item: " + "\n" + JSON.stringify(err, undefined, 2);
+            console.log("Unable to add item: " + "\n" + JSON.stringify(err, undefined, 2));
         } else {
-            document.getElementById('textarea').innerHTML = "Put Item succeeded";
+            console.log("Put Item succeeded");
         }
     });
 }
 
 function reporterDetails(email_text) {
-    document.getElementById('textarea').innerHTML += "Querying for items in database." + "\n";
+    console.log("Querying for items in database." + "\n");
     // debugger;
     var params = {
         TableName : "User-Data",
@@ -95,7 +95,7 @@ function reporterDetails(email_text) {
 
     docClient.query(params, function(err, data) {
         if (err) {
-            document.getElementById('textarea').innerHTML += JSON.stringify(err, undefined, 2);
+            console.log(JSON.stringify(err, undefined, 2)); 
         } else {
             // document.getElementById('textarea').innerHTML += JSON.stringify(data, undefined, 2);
             var reporter = data.Items;
@@ -110,9 +110,7 @@ function scanDB(reporter) {
         var myEmail = reporter[x].Email;
         var myLocation = reporter[x].Location;
         var myTime = reporter[x].Date;
-        var email_list = [];
-        document.getElementById('textarea').innerHTML += "a " + myLocation + "\n";
-        document.getElementById('textarea').innerHTML += "a " + myTime + "\n";
+        console.log("a " + myLocation + "\n");
 
         var params = {
             TableName : "User-Data",
@@ -135,11 +133,11 @@ function scanDB(reporter) {
 
         function onScan(err, data) {
             if (err) {
-                document.getElementById('textarea').innerHTML += "Unable to scan the table: " + "\n" + JSON.stringify(err, undefined, 2);
+                console.log("Unable to scan the table: " + "\n" + JSON.stringify(err, undefined, 2));
             } else {
                 // do something - email
-                console.log(data)
-                document.getElementById('textarea').innerHTML += "Scan succeeded. " + "\n";
+                console.log(data);
+                console.log("Scan succeeded. " + "\n");
             
                 data.Items.forEach(email_contacts);
                     
@@ -147,18 +145,18 @@ function scanDB(reporter) {
                     let location = json_item.Location;
                     let date = json_item.Date;
                     let email = json_item.Email;
-                    document.getElementById('textarea').innerHTML += email + "\n";
-                    document.getElementById('textarea').innerHTML += date + "\n";
-                    document.getElementById('textarea').innerHTML += location + "\n" + "\n";
                     // email_list.push(email, location, date);
-                    email_body = "Hello, there was a reported case of COVID19 at " + location + " this case occured during " + date.toString();
-                    console.log(email_body)
+                    var date1_convert = new Date(date);
+                    var date2_convert = new Date(date+7200000);
+                    var time_text = "from " + date1_convert.toString() + " to " + date2_convert.toString();
+                    var email_body = "Hello, there was a reported case of COVID19 at " + location + " this case occured " + time_text;
+                    console.log(email_body);
                     Email.send({
                         SecureToken: "9715427a-09aa-4965-8d4d-f5e7e686071f",
                         Host: "smtp.gmail.com",
                         Username: "salefinder.ned@gmail.com",
                         Password: "haruc4h9",
-                        To: "ericdong97@gmail.com", //todo change this
+                        To: email, //todo change this
                         From: "salefinder.ned@gmail.com",
                         Subject: "COVID19 Contact Tracing",
                         Body: email_body
@@ -187,8 +185,8 @@ function conditionalDelete(email_text) {
    var params = {
        TableName:table,
        Key:{
-           "year":year,
-           "title":title
+           "Email":email,
+           "Date":date
        },
        ConditionExpression:"info.rating <= :val",
        ExpressionAttributeValues: {
@@ -198,9 +196,9 @@ function conditionalDelete(email_text) {
 
    docClient.delete(params, function(err, data) {
        if (err) {
-           document.getElementById('textarea').innerHTML = "The conditional delete failed: " + "\n" + JSON.stringify(err, undefined, 2);
+           console.log("The conditional delete failed: " + "\n" + JSON.stringify(err, undefined, 2));
        } else {
-           document.getElementById('textarea').innerHTML = "The conditional delete succeeded: " + "\n" + JSON.stringify(data, undefined, 2);
+           console.log("The conditional delete succeeded: " + "\n" + JSON.stringify(data, undefined, 2));
        }
    });
 }
