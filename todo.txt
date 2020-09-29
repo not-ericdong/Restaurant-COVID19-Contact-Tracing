@@ -31,5 +31,8 @@ Restraunts will need to signup on the For Businesses page, they will enter the l
 need to send email
 
 need to fix html and css
+erase textbox when click button
+add appropreate alerts when button clicked
+
 
 think thats it
