@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>COVID-19 Contact Tracing</title>
+   <title>COVID-19 Contact Tracing | Customers</title>
    <meta name="description" content="COVID-19 Contact tracing for restaurants and small businesses">
    <link rel="shortcut icon" href="images/favicon.ico">
    <link rel="stylesheet" href="styles.css">
@@ -24,33 +25,43 @@
          <a href="https://not-ericdong.github.io/Restaurant-COVID19-Contact-Tracing/reporting.html">Reporting</a>
          <a href="mailto:ericdong97@gmail.com">Contact</a>
       </nav>
-   
+
       <main>
          <div>
-            <p>This website will alert you of possible COVID19 exposures.</p>
-      
             <p>
-               Please provide the email you wish to recieve exposure notifications below. If you used this webpage previously please use the same email you entered last time.
+               What--------
+               by providing your email below, this website will automatically alert you of cvoid exposure if a person in
+               the building/business/restraunt (idk) has reported covid. if you yourself has contracted covid please head to the reporting page an follow the instructions there.
             </p>
 
-            <form action="#" name="form1" >
-               <input type="text" placeholder="Enter an E-Mail Address" name="email_text" class="form"/>
-               <input type="button" value="SEND" onclick="createItem(document.form1.email_text.value); ValidateEmail(document.form1.email_text);"/>
+            <p>
+               How to use -----
+               Please provide the email you wish to recieve exposure notifications below. If you used this webpage
+               previously please use the same email you entered last time. The website will automatically alert you if
+               there is a potential exposure during ur visit.
+            </p>
+
+            <form action="#" name="form1">
+               <input type="text" placeholder="E-Mail Address" name="email_text" class="form" />
+               <input type="button" value="SEND"
+                  onclick="createItem(document.form1.email_text.value); ValidateEmail(document.form1.email_text);" />
             </form>
 
-            
-            <!-- <h2>This website stores only the following:</h2> -->
-            <ul>
-               <li>The location you visited</li>
-               <li>Date and time of your visit</li>
-               <li>The email you provided</li>
-            </ul>
-      
-            <p>For more infomation on how the website works please visit this <a
-                  href="https://github.com/not-ericdong/Restaurant-COVID19-Contact-Tracing/blob/master/README.md">page</a></p>
+            <div class="centered">
+               <h2>This website stores only the following:</h2>
+               <ul>
+                  <li>The location you visited - based on the QR code scanned</li>
+                  <li>Date and time of your visit - automatically generated</li>
+                  <li>The email you provided - based on your input</li>
+               </ul>
+               </div>
+   
+               <p class="centered">For more infomation on how the website works please visit this <a
+                     href="https://github.com/not-ericdong/Restaurant-COVID19-Contact-Tracing/blob/master/README.md">page</a>.
+               </p>
          </div>
       </main>
-   
+
       <footer>
          <p>Created by <a href="https://github.com/not-ericdong/">Eric Dong</a> 2020
          </p>
@@ -60,9 +71,10 @@
    </div>
 
    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.756.0.min.js"></script>
-   <script src="https://smtpjs.com/v3/smtp.js"></script>  
+   <script src="https://smtpjs.com/v3/smtp.js"></script>
    <script src="qrcode.js"></script>
    <script src="main.js"></script>
    <script src="url.js"></script>
 </body>
+
 </html>

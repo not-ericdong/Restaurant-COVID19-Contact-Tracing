@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>COVID-19 Contact Tracing</title>
+   <title>COVID-19 Contact Tracing | Reporting</title>
    <meta name="description" content="COVID-19 Contact tracing for restaurants and small businesses">
    <link rel="shortcut icon" href="images/favicon.ico">
    <link rel="stylesheet" href="styles.css">
@@ -24,32 +25,36 @@
          <a href="https://not-ericdong.github.io/Restaurant-COVID19-Contact-Tracing/reporting.html">Reporting</a>
          <a href="mailto:ericdong97@gmail.com">Contact</a>
       </nav>
-   
+
       <main>
          <div>
-            <p>THIS IS THE REPORTING PAGE</p>
-         
+            <p>If you got covid then please provide the same email you used at previouse restraunts/places/businesses the restraunt will automatically send out alerts to other customers who may have come in contact with you.</p>
+
             <p>
-               Please provide the email you wish to recieve exposure notifications below.
+               Please provide the email you sued below. Please only report if you actually have cvoid.
             </p>
 
-            <form action="#" name="form3" >
-               <input type="text" placeholder="Enter an E-Mail Address" name="email_text" class="form"/>
-               <input type="button" value="SEND" onclick="reporterDetails(document.form3.email_text.value); ValidateEmail(document.form1.email_text);"/>
+            <form action="#" name="form3">
+               <input type="text" placeholder="E-Mail Address" name="email_text" class="form" />
+               <input type="button" value="SEND"
+                  onclick="reporterDetails(document.form3.email_text.value); ValidateEmail(document.form1.email_text);" />
             </form>
 
-            
-
-            <ul>This website stores only the following:
-               <li>The location you visited</li>
-               <li>Date and time of your visit</li>
-               <li>The email you provided</li>
-            </ul>
-
-            <p>For more infomation on how the website works please visit this <a href="https://github.com/not-ericdong/Restaurant-COVID19-Contact-Tracing/blob/master/README.md">page</a></p>
+            <div class="centered">
+               <h2>This website stores only the following:</h2>
+               <ul>
+                  <li>The location you visited - based on the QR code scanned</li>
+                  <li>Date and time of your visit - automatically generated</li>
+                  <li>The email you provided - based on your input</li>
+               </ul>
+               </div>
+   
+               <p class="centered">For more infomation on how the website works please visit this <a
+                     href="https://github.com/not-ericdong/Restaurant-COVID19-Contact-Tracing/blob/master/README.md">page</a>.
+               </p>
          </div>
       </main>
-   
+
       <footer>
          <p>Created by <a href="https://github.com/not-ericdong/">Eric Dong</a> 2020
          </p>
@@ -59,9 +64,10 @@
    </div>
 
    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.756.0.min.js"></script>
-   <script src="https://smtpjs.com/v3/smtp.js"></script>  
+   <script src="https://smtpjs.com/v3/smtp.js"></script>
    <script src="qrcode.js"></script>
    <script src="main.js"></script>
    <script src="url.js"></script>
 </body>
+
 </html>

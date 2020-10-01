@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>COVID-19 Contact Tracing</title>
+   <title>COVID-19 Contact Tracing | Businesses</title>
    <meta name="description" content="COVID-19 Contact tracing for restaurants and small businesses">
    <link rel="shortcut icon" href="images/favicon.ico">
    <link rel="stylesheet" href="styles.css">
@@ -24,41 +25,49 @@
          <a href="https://not-ericdong.github.io/Restaurant-COVID19-Contact-Tracing/reporting.html">Reporting</a>
          <a href="mailto:ericdong97@gmail.com">Contact</a>
       </nav>
-   
+
       <main>
          <div>
-            <p>THIS IS THE BUSINESS PAGE</p>
+            <p>WHAT --------- this website is for business owners to help track??? covid 19 for customers (idk). it reduces needness contact with customers, streamlines reporting process, and provides quicker (customer input)??? the website will provide you with a qr for customers to scan. you can place the qr codes at the entrance of ur establishment, on menus, or ____</p>
 
-            <p>This website will alert you of possible COVID19 exposures. </p>
-         
-            <p class="centered">
+            
+            <div class="centered">
+            <h2>HOW TO USE ----  </h2>    
+               <ol>
+                  <li value="1">Enter the name of your restraunt below.</li>
+                  <li>A QR code will be generated for you</li>
+                  <li>Save the QR code onto your computer</li>
+                  <li>Print and place the QR code onto signs, menus, etc.</li>
+               </ol>
+            </div>
+            <!-- <p class="centered">
                Please provide the name of your business below.
-            </p>
+            </p> -->
 
             <form action="#" name="form2">
-               <input type="text" placeholder="Enter the address of your business" id="qrData" class="form"/>
-               <input type="button" value="Submit" onclick="makeQR();"/>
-               <div >
-                  <div id="qrcode" class="qr-wrapper"></div>
+               <input type="text" placeholder="Businesses Name" id="qrData" class="form" />
+               <input type="button" value="SEND" onclick="makeQR();" />
+
+               <div class="spacer">
+                     <div id="qrcode" class="qr-wrapper"></div>
                </div>
             </form>
 
-            <!-- <form action="#" name="form2">
-               <input type="text" placeholder="Enter the address of your " id="qrData" class="form"/>
-               <input type="button" value="Submit" onclick="makeQR();"/>
-               <div id="qrcode"></div>
-            </form> -->
-
-            <ul>This website stores only the following:
-               <li>The location you visited</li>
-               <li>Date and time of your visit</li>
-               <li>The email you provided</li>
+            <div class="centered">
+            <h2>This website stores only the following:</h2>
+            <ul>
+               <li>The location you visited - based on the QR code scanned</li>
+               <li>Date and time of your visit - automatically generated</li>
+               <li>The email you provided - based on your input</li>
             </ul>
+            </div>
 
-            <p>For more infomation on how the website works please visit this <a href="https://github.com/not-ericdong/Restaurant-COVID19-Contact-Tracing/blob/master/README.md">page</a></p>
+            <p class="centered">For more infomation on how the website works please visit this <a
+                  href="https://github.com/not-ericdong/Restaurant-COVID19-Contact-Tracing/blob/master/README.md">page</a>.
+            </p>
          </div>
       </main>
-   
+
       <footer>
          <p>Created by <a href="https://github.com/not-ericdong/">Eric Dong</a> 2020
          </p>
@@ -68,9 +77,10 @@
    </div>
 
    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.756.0.min.js"></script>
-   <script src="https://smtpjs.com/v3/smtp.js"></script>  
+   <script src="https://smtpjs.com/v3/smtp.js"></script>
    <script src="qrcode.js"></script>
    <script src="main.js"></script>
    <script src="url.js"></script>
 </body>
+
 </html>
