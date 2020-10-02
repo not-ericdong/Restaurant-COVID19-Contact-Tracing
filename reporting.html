@@ -28,19 +28,22 @@
 
       <main>
          <div>
-            <p>If you got covid then please provide the same email you used at previouse restraunts/places/businesses the restraunt will automatically send out alerts to other customers who may have come in contact with you.</p>
+            <p>If you have tested positive for COVID-19, please provide the same email that you have used in the establishments that you have been in. The website will automatically send out alerts to any other customers with overlapping locations and times, and thus that have potentially been exposed to the virus. </p>
 
             <p>
-               Please provide the email you sued below. Please only report if you actually have cvoid.
+               <b>
+               Please only report if you have tested positive for COVID-19 at a certified testing facility. 
+               </b>
             </p>
 
             <form action="#" name="form3">
                <input type="text" placeholder="E-Mail Address" name="email_text" class="form" />
                <input type="button" value="SEND"
-                  onclick="reporterDetails(document.form3.email_text.value); ValidateEmail(document.form1.email_text);" />
+                  onclick="reporterDetails(document.form3.email_text.value);" />
             </form>
+            <div class="submitresponse" id="errortext"></div>
 
-            <div class="centered">
+            <div>
                <h2>This website stores only the following:</h2>
                <ul>
                   <li>The location you visited - based on the QR code scanned</li>
@@ -49,7 +52,7 @@
                </ul>
                </div>
    
-               <p class="centered">For more infomation on how the website works please visit this <a
+               <p class="small">For more infomation on how the website works please visit this <a
                      href="https://github.com/not-ericdong/Restaurant-COVID19-Contact-Tracing/blob/master/README.md">page</a>.
                </p>
          </div>

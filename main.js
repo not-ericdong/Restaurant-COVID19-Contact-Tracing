@@ -2,16 +2,14 @@
 function ValidateEmail(emailInput) {
     var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     if (emailInput.value.match(mailformat)) {
-        alert("Thanks for entering an email address!");
-        // document.form1.text1.focus();
+        // alert("Thanks for entering an email address!");
+        createItem(document.form1.email_text.value);
+        document.getElementById('errortext').innerHTML = "";
+        document.getElementById('submitText').innerHTML = "Thanks for providing an email";
         return (true);
     } else {
-        // let errorMsgP = document.createElement("div");
-        // let errorMsg = document.createTextNode("You have entered an invalid email address!");
-        // errorMsgP.appendChild(errorMsg);
-        // let currentDiv = document.getElementById("button1");
-        // document.body.insertBefore(errorMsgP, currentDiv);
-        alert("Please enter a valid email address!");
+        document.getElementById('errortext').innerHTML = "Please enter a valid email";
+        // alert("Please enter a valid email address!");
         document.form1.text1.focus();
         return (false);
     }
@@ -77,7 +75,8 @@ function createItem(email_text) {
 }
 
 function reporterDetails(email_text) {
-    console.log("Querying for items in database." + "\n");
+    // console.log("Querying for items in database." + "\n");
+    document.getElementById('errortext').innerHTML = "Thanks for reporting";
     // debugger;
     var params = {
         TableName : "User-Data",

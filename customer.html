@@ -29,25 +29,30 @@
       <main>
          <div>
             <p>
-               What--------
-               by providing your email below, this website will automatically alert you of cvoid exposure if a person in
-               the building/business/restraunt (idk) has reported covid. if you yourself has contracted covid please head to the reporting page an follow the instructions there.
+               This website will alert you of any possible exposure you may have had to COVID-19 while being in public areas. This includes restaurants, shopping malls, local businesses, and other establishments. 
             </p>
 
             <p>
-               How to use -----
-               Please provide the email you wish to recieve exposure notifications below. If you used this webpage
-               previously please use the same email you entered last time. The website will automatically alert you if
-               there is a potential exposure during ur visit.
+               Each participating establishment will obtain a unique QR code that customers can scan upon entering the premises. If a customer or worker reports that they have contracted COVID-19, the system will automatically trace the history of locations and times in each establishment that the infected individual has been in. All other customers that have been in the premises at the same time of the infected individual in the past will be notified through email that they could have possibly been exposed to the virus.
+            </p>
+
+            <p>
+            <b>Please provide the email that you wish to receive any possible exposure notifications below. If you have used this webpage previously, please use the same email.</b>
             </p>
 
             <form action="#" name="form1">
                <input type="text" placeholder="E-Mail Address" name="email_text" class="form" />
                <input type="button" value="SEND"
-                  onclick="createItem(document.form1.email_text.value); ValidateEmail(document.form1.email_text);" />
+                  onclick="ValidateEmail(document.form1.email_text);" />
             </form>
+            <div class="passwordError" id="errortext"></div>
+            <div class="submitresponse" id="submitText"></div>
 
-            <div class="centered">
+            <p>
+               <b>If you have tested positive for COVID-19, please report your case on the “Reporting” page. </b>
+            </p>
+            
+            <div>
                <h2>This website stores only the following:</h2>
                <ul>
                   <li>The location you visited - based on the QR code scanned</li>
@@ -56,7 +61,7 @@
                </ul>
                </div>
    
-               <p class="centered">For more infomation on how the website works please visit this <a
+               <p class="small">For more infomation on how the website works please visit this <a
                      href="https://github.com/not-ericdong/Restaurant-COVID19-Contact-Tracing/blob/master/README.md">page</a>.
                </p>
          </div>
